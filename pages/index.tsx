@@ -1,29 +1,38 @@
-import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Link from "../components/Link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import CategoryCard from "../components/CategoryCard";
+import Header from "../components/Header";
+import { selectCategories } from "../redux/categoriesSlice";
+import { CategoryType } from "../types/dataTypes";
 
 export default function Home() {
+  const categories = useSelector(selectCategories);
+  const router = useRouter();
+  const [selectedCategories, setselectedCategories] = useState(categories);
+
+  useEffect(() => {
+    if (router.query?.category) {
+      setselectedCategories(
+        categories.filter((category) => category.id == router.query.category)
+      );
+    } else {
+      setselectedCategories(categories);
+    }
+  }, [router.query?.category]);
+
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <div className="text-red-500">qqqqqq</div>
-      </Box>
-    </Container>
+    <div className="bg-gray-100 h-screen flex flex-col">
+      <Header title="Dashboard" />
+      <div className="overflow-y-auto flex-grow flex flex-col gap-6 p-5">
+        {selectedCategories.length > 0 ? (
+          selectedCategories.map((category) => (
+            <CategoryCard key={category.id} category={category} />
+          ))
+        ) : (
+          <div>no category</div>
+        )}
+      </div>
+    </div>
   );
 }
