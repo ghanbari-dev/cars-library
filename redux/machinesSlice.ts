@@ -8,8 +8,9 @@ import {
   removeAttributeType,
 } from "../types/dataTypes";
 import { RootState } from "./store";
+import data from "../data.json"
 
-const initialState: MachineType[] = [];
+const initialState: MachineType[] = data.machines;
 
 export const machinesSlice = createSlice({
   name: "machines",

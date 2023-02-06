@@ -1,6 +1,6 @@
 import { DeleteOutlineTwoTone } from "@mui/icons-material";
 import { IconButton, Paper, Switch, TextField } from "@mui/material";
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { deleteMachine, updateMachine } from "../redux/machinesSlice";
 import {
@@ -14,7 +14,6 @@ type Props = { category: CategoryType; machine: MachineType };
 
 const MachineCard = ({ machine, category }: Props) => {
   const dispatch = useDispatch();
-  useEffect(() => {}, []);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement>,

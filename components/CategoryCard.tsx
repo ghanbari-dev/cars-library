@@ -1,5 +1,5 @@
 import { AddTwoTone } from "@mui/icons-material";
-import { Button, Divider, Switch, TextField } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createMachine, selectMachines } from "../redux/machinesSlice";

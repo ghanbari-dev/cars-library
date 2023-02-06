@@ -8,7 +8,7 @@ import {
   Radio,
   TextField,
 } from "@mui/material";
-import React, { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   createAttribute,
@@ -165,7 +165,7 @@ const CreateCategoryCard = ({ category }: Props) => {
               variant="contained"
               color="secondary"
               onClick={() => {
-               addAttributehandler("text");
+                addAttributehandler("text");
               }}
             >
               TEXT

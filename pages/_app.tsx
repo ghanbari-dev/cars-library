@@ -20,7 +20,7 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-let persistor = persistStore(store);
+const persistor = persistStore(store);
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;

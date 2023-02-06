@@ -6,8 +6,9 @@ import {
   removeAttributeType,
 } from "../types/dataTypes";
 import { RootState } from "./store";
+import data from "../data.json";
 
-const initialState: CategoryType[] = [];
+const initialState: CategoryType[] = data.categories as CategoryType[];
 
 export const categoriesSlice = createSlice({
   name: "categories",

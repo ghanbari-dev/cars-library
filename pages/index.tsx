@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import CategoryCard from "../components/CategoryCard";
 import Header from "../components/Header";
 import { selectCategories } from "../redux/categoriesSlice";
-import { CategoryType } from "../types/dataTypes";
 
 export default function Home() {
   const categories = useSelector(selectCategories);
